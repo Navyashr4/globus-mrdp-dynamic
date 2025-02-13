@@ -25,6 +25,8 @@ import { useGlobusAuth } from "@globus/react-auth-context";
 import throttle from "lodash/throttle";
 import { QuestionIcon } from "@chakra-ui/icons";
 
+import mockData from "../mockdb.json"; // Importing mock data
+
 type Endpoint = Record<string, any>;
 
 export function CollectionSearch({
@@ -34,6 +36,8 @@ export function CollectionSearch({
 }) {
   const auth = useGlobusAuth();
   const [results, setResults] = useState<Endpoint[]>([]);
+  const [mockResults] = useState<Endpoint[]>(mockData); // Store mock data
+  const [filteredMockResults, setFilteredMockResults] = useState<Endpoint[]>([]); // Initially empty  
   const [keyword, setKeyword] = useState<string | null>(null);
   const [scope, setScope] = useState<string>("hide-no-permissions");
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -70,6 +74,35 @@ export function CollectionSearch({
     setIsRefreshing(true);
     search(keyword);
   }, [search, keyword]);
+
+  useEffect(() => {
+    if (!keyword) {
+      setResults([]);
+      setFilteredMockResults([]); // No results initially
+      return;
+    }
+  
+    const lowerKeyword = keyword.toLowerCase();
+    const isUrl = lowerKeyword.startsWith("http://") || lowerKeyword.startsWith("https://");
+  
+    if (isUrl) {
+      // Exact match search for the `link` attribute
+      const exactMatch = mockResults.find((entry) => entry.link === lowerKeyword);
+      setFilteredMockResults(exactMatch ? [exactMatch] : []);
+    } else {
+      // Normal filtering for partial matches
+      const filtered = mockResults.filter((entry) =>
+        Object.values(entry).some(
+          (value) =>
+            typeof value === "string" && value.toLowerCase().includes(lowerKeyword)
+        )
+      );
+      setFilteredMockResults(filtered);
+    }
+  
+    setIsRefreshing(true);
+    search(keyword);
+  }, [search, keyword, mockResults]);
 
   async function handleSearch(e: React.FormEvent<HTMLInputElement>) {
     const query = e.currentTarget.value;
@@ -117,6 +150,35 @@ export function CollectionSearch({
           )}
         </Box>
       </Box>
+
+      {/* Render mock data first */}
+      {filteredMockResults.map((result) => (
+        <Card
+          size="sm"
+          variant="filled"
+          key={result.id}
+          onClick={() => handleSelect(result)}
+          _hover={{ cursor: "pointer", borderColor: "green.500" }}
+        >
+          <CardHeader pb={0}>
+            <Text>{result.name}</Text>
+          </CardHeader>
+          <CardBody>
+            <List>
+              <Text fontSize="xs">
+                <ListItem>ID: {result.id}</ListItem>
+                <ListItem>Owner: {result.owner}</ListItem>
+                {result.description && (
+                  <ListItem>
+                    <Text noOfLines={1}>Description: {result.description}</Text>
+                  </ListItem>
+                )}
+                {result.link && <ListItem>{result.link}</ListItem>}
+              </Text>
+            </List>
+          </CardBody>
+        </Card>
+      ))}
 
       {results.map((result) => (
         <Card
