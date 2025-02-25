@@ -1,5 +1,92 @@
 # Changelog
 
+## [1.0.4](https://github.com/Navyashr4/globus-mrdp-dynamic/compare/v2.1.0...1.0.4) (2025-02-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use in-memory based storage for authorization tokens, by default. ([#347](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/347))
+* Move to npm packaging and update to new static.json format ([#1](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/1))
+
+### chore
+
+* release static-data-portal 1.0.4 ([ef2eb3b](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/ef2eb3b20da6957b48a9d7c08413600264b869ba))
+
+
+### Features
+
+* add link to Globus Web App Task Overview on successful Transfer task creation. ([#63](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/63)) ([1f1ab94](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/1f1ab948eec0ee59dc28be811feee5404b4052d3))
+* Adds "Clear Selected" button to the source file browser. ([79058b6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/79058b6b2828a7c30f4c9552e42e7a730d7ca9c5))
+* Adds "Search All Collections" toggle in the search panel. ([79058b6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/79058b6b2828a7c30f4c9552e42e7a730d7ca9c5))
+* adds basic 'View Settings' and refactors File Browser ([071b264](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/071b264f150b3c35126471343a1254343d7d9824))
+* Adds button to open files in a new tab when collections support HTTPS. ([#337](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/337)) ([d6cc729](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/d6cc729252243fd79c434f4dd8fdf2041803c7b0))
+* adds Globus Client ID configuration ([5df9c86](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/5df9c86649959e4b138a3d52917c71eda501dde7))
+* adds OIDC integration using react-oidc-context ([aa8f5ab](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/aa8f5ab5a2377693cf5fcb176a671cff3e23af70))
+* Adds Source Selection support. ([#271](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/271)) ([2ea1da9](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/2ea1da9c96d0fbd40289855ceb3c8be79c1f13a0))
+* adds static integration and CI ([cc176ee](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/cc176ee4f5d8e2ff338d7b691f1591da81695342))
+* adds support for 'path' configuration ([08e8b19](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/08e8b195643e2ff7b3d9dba267e61519f06e9273))
+* adds support for "content" directory ([#159](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/159)) ([8a21371](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/8a213718b6aed456fae275ad08cc60c6f78da0ce))
+* adds support for `data.attributes.theme` ([#64](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/64)) ([38e593d](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/38e593d75a5a7bad33cc9589c09ce4d0ed721e56))
+* adds support for content.subtitle ([#140](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/140)) ([d74bf52](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/d74bf52420b3d96a06dbcbf75cfeca9d48f6bf3e))
+* adds support for Globus environment targeting via `static.json` ([3771174](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/3771174a70f2cbb47f674f2ecadf33e227dc2d79))
+* adds support for MDX ([#142](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/142)) ([7c02ca0](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/7c02ca05eff386194e6200ec350ab5dfa20dadaf))
+* Adds support for mkdir and rename in destination browser. ([#58](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/58)) ([a1e93a4](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/a1e93a4a182492926d0381224f3d3571c1d42f59))
+* adds utils/static, enables dynamic resolving of 'redirect_uri' ([cd8b16b](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/cd8b16b1ceb93b342ac10215e6941f5805241db0))
+* basic directory traversal ([0f89750](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/0f89750b8ed0341a500fad3182723deff4d7de83))
+* basic transfer functionality ([b0c7111](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/b0c71115f40efdd670b6cd705852abaa95e4296e))
+* Globus Transfer interactions have been moved to the /transfer route. This allows for custom homepages on `/` using a `index.(mdx/tsx)` file. ([#204](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/204)) ([c282f81](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/c282f8176a37be64e582edbd640f41ec5f04b586))
+* globus-auth-context + Authorization ([617c7b6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/617c7b692e2478101c4274c5562313918735f9b2))
+* http download, collection path display, and error formatting ([dc715e3](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/dc715e337e12feccfb50d221ed494871f2733bc6))
+* improved Modified Date and Size rendering ([32e3c4f](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/32e3c4fd82b9c3619f235e73bb9934276cbf1911))
+* Improves network request performance and loading states by implementing a cache layer. ([#194](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/194)) ([070ab91](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/070ab91789faf2424fa8bce4e1839e059a6ef9bb))
+* introduces authorization_parameters error handling ([0f76136](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/0f76136c9f48c12cbefc4debcd34b085951b3bf0))
+* **main:** adds support for 'data.attributes.tagline' for customizing the tagline displayed when logged out. ([60b1db9](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/60b1db9e6baf46296091cc1df7169c936fb144ae))
+* Move to npm packaging and update to new static.json format ([#1](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/1)) ([6032914](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/60329147912516f61413955b65f3a169f17958ba))
+* Persist collection (destination) selection state in session storage ([#128](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/128)) ([d6a0d12](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/d6a0d123e24367ebc3d3720d36bcac69b98d1af9))
+* support content/assets/* =&gt; public/* ([2e5945d](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/2e5945dd220a29782c1e860a7f796be174c73873))
+* **Theming:** Use "primary" and "secondary" color palettes for theming instead of "brand". ([#319](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/319)) ([2a9c5f6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/2a9c5f67d28e7a0433648880166691fbbdca8e73))
+* Updates Destination search to hide collections the user does not have Transfer-related permissions on (by default) ([#370](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/370)) ([79058b6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/79058b6b2828a7c30f4c9552e42e7a730d7ca9c5))
+* updates Header authenticated state to render username; name and organization included in menu. ([#34](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/34)) ([3771174](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/3771174a70f2cbb47f674f2ecadf33e227dc2d79))
+* Updates the "Path" field to be editable for easy directory navigation. ([#242](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/242)) ([a3a2d03](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/a3a2d03bc4857e413c596f6884397467c259b612))
+* upgrade to @globus/sdk 3.8.0 and use new Transfer utility methods ([#199](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/199)) ([989cc44](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/989cc446d3b96a407c32f32ad46271eb8c491c76))
+* Use in-memory based storage for authorization tokens, by default. ([#347](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/347)) ([c6ac0f8](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/c6ac0f881531cd2dd7e5cfc234b6b6065d77b3b5))
+
+
+### Fixes
+
+* `content` file overrides for well-known pages (e.g. `index.*`, `privacy-policy.*`), no longer need to match the generator's extension ([#224](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/224)) ([e3754a9](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/e3754a9ad0e22daa4c4b6e676782f39ee12b1704))
+* add 'redirect_uri' for deployment ([c409a41](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/c409a411551b68a82626bcb867d0fb9cde518bfc))
+* Address issue causing the default header image not rendering on deep pages when portal was published. ([#369](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/369)) ([ac3b7d2](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/ac3b7d23abbe241968b98aec993479691148ff71))
+* Address scenarios where post-consent an existing (refreshed) token would be used instead of the result of the token response. ([a3a2d03](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/a3a2d03bc4857e413c596f6884397467c259b612))
+* Addresses an issue preventing Transfers being initiated to the "server default" path on a destination collection. ([#312](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/312)) ([e72ff70](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/e72ff70837edb6bca3090b3ff38733cdb32234e5))
+* Addresses issue causing new folders being prefixed with "undefined", updates file listing to be sorted by "Name" ([#278](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/278)) ([1e1431c](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/1e1431c8502668d422b856e0db51a902c17574ba))
+* Addresses issue preventing HTTPS download button appearing on file entries. ([#295](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/295)) ([27effc7](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/27effc7bb4da866284cfa0b396ee4153935cae7b))
+* Adds external link icon to external links in the main navigation and reorders custom links. ([34b6915](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/34b691519b54826d64751e1e933c64b2224dcd13))
+* Adds Globus logo to "Powered by Globus" footer. ([d74bf52](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/d74bf52420b3d96a06dbcbf75cfeca9d48f6bf3e))
+* Adds loading states to "Refresh" and "Start Transfer" buttons. ([070ab91](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/070ab91789faf2424fa8bce4e1839e059a6ef9bb))
+* adds predev script (runs prebuild) ([d027fe4](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/d027fe49efe012e4e866a47824a2cbd6e9907d78))
+* adds useLayout hook and improves rendering of pages by sharing a Container ([#207](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/207)) ([68bccd8](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/68bccd82e389ee3ff7f8d85e4449201922cf9015))
+* build error encountered due to image configurations ([bbf2cfc](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/bbf2cfcca305daf0c168db451af366bb69b1e68e))
+* disable 'Start Transfer' button for now... ([4b72ba6](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/4b72ba6358dc657ffae9979306ab876523517a4a))
+* ensure 'Up One Folder' interaction works on initial load when no 'path' is provided ([2ffe7f1](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/2ffe7f1acb37f149656a40ac1fa759458a3b921e))
+* ensure AuthorizationManager methods are awaited ([#263](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/263)) ([1306141](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/1306141e20a72432f3a71f09a062a75da58956dd))
+* Ensure full hosted base path is used in various image rendering contexts. ([#218](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/218)) ([03a3c43](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/03a3c4387ab63deb6a8d657a0117029427d87695))
+* Ensure relative links in Markdown use Next.js Link component for rendering. ([#206](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/206)) ([34b6915](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/34b691519b54826d64751e1e933c64b2224dcd13))
+* ensure relative paths can be used for images in Markdown ([#217](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/217)) ([92ebdf3](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/92ebdf3f056a52a936a5c8a3399b9403b4cc84d3))
+* ensure the /authorization route refreshes tokens (when returning from an authorization_requirements prompt) ([#195](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/195)) ([b042a81](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/b042a818963d9fc98f48c596a4d4bc2172cb9c26))
+* improve header rendering on smaller devices ([#154](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/154)) ([3de3e29](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/3de3e29b5c385c375a9366530a5234395ea3583c))
+* Improves base Markdown rendering for various elements ([#216](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/216)) ([b3e1f30](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/b3e1f30fd10a9a07497a617e6557369c158ae371))
+* improves integration with @globus/sdk authorization ([3771174](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/3771174a70f2cbb47f674f2ecadf33e227dc2d79))
+* improves the loading states of file browsers ([#205](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/205)) ([fe58559](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/fe585599c1bbbace33fc257b2e5a1c3ae4c38367))
+* move GitHub workflows to proper directory ([86b2a66](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/86b2a66cd41ee024a1b2f30b2dbcfa947aa47d38))
+* Only render "Size" values for files in file browsers. ([a89c2d0](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/a89c2d067e92dd603daad8b7c063b3670dc246bc))
+* proper @globus/sdk reference ([cacf77b](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/cacf77b94ca9f767d3f3ce1ffa8db59117e9c011))
+* **Search:** Ensures GCSv5 Endpoints ("nonfunctional" endpoints that do not support transfer) are not displayed in destination collection search results. ([#231](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/231)) ([1702e62](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/1702e629f4ca7f01ee692481669a5c7d165762f2))
+* Throttles the `&lt;CollectionSearch&gt;` requests. ([070ab91](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/070ab91789faf2424fa8bce4e1839e059a6ef9bb))
+* use _static.host for redirect_uri when available ([8103c47](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/8103c4769e8942e8be903d0481aa8979bbf3acfc))
+* use zustand for state management and resolve various state issues in the File Browser ([#335](https://github.com/Navyashr4/globus-mrdp-dynamic/issues/335)) ([6b221e5](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/6b221e598067c5a945582a50820618d4b3bef503))
+* various typescript errors and fallback error for file browser ([65daca1](https://github.com/Navyashr4/globus-mrdp-dynamic/commit/65daca1d37d77c0b3ca79aeccccad8b666775903))
+
 ## [2.1.0](https://github.com/globus/static-data-portal/compare/2.0.0...2.1.0) (2024-11-15)
 
 
