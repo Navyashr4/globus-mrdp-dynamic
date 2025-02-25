@@ -41,6 +41,11 @@ const DEFAULT_NAVIGATION: NavigationOptions = {
       to: "/transfer",
       authenticated: true,
     },
+    {
+      label: "Manage",
+      to: "/manage",
+      authenticated: true,
+    },
   ],
 };
 

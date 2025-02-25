@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Colorado State University RIT - RStor Collection",
+    "id": "3d86d9a4-9ec7-4334-bc07-d3bf36f733f8",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "RStor backed collection for long-term storage",
+    "link": "m-b3e09a.f5e32b.75bc.data.globus.org"
+  },
+  {
+    "name": "University of California - HPC Storage",
+    "id": "92ad5f10-bb36-4a7c-9f32-6d7f41a1c8f2",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "High-performance computing storage for UC research teams",
+    "link": "uc-hpc.data.globus.org"
+  },
+  {
+    "name": "MIT AI Research Cluster",
+    "id": "5d1a6b2c-8e9c-4b76-bfa7-ae7f8d2d7d90",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "Data repository for AI research at MIT",
+    "link": "mit-ai.data.globus.org"
+  },
+  {
+    "name": "Stanford Genomics Data Archive",
+    "id": "b1d43c2f-6a7d-4e9c-a6e1-93c78f6b521e",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "Stanford's genomics research data storage",
+    "link": "stanford-genomics.data.globus.org"
+  },
+  {
+    "name": "NASA Climate Data Center",
+    "id": "c7f82b9d-5a46-47b3-9486-8d2e76f4c9e0",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "Satellite and climate observation datasets",
+    "link": "nasa-climate.data.globus.org"
+  },
+  {
+    "name": "Harvard Physics Research Data Hub",
+    "id": "8e21f2c7-b4a5-4e79-97a1-5d8f7c3b2a94",
+    "owner_id": "5a6b3c8e-1d9f-4c72-84e5-2c49b7d35a27",
+    "description": "Repository for high-energy physics datasets",
+    "link": "harvard-physics.data.globus.org"
+  },
+  {
+    "name": "Princeton Computational Neuroscience",
+    "id": "d29f83a6-7c48-4b71-8e6f-3c92b1e4f5d0",
+    "owner_id": "c4a9f872-5b6c-47d1-a8e3-2f8b9c1e5d34",
+    "description": "Neural network simulation datasets",
+    "link": "princeton-neuro.data.globus.org"
+  },
+  {
+    "name": "Argonne National Lab HPC Storage",
+    "id": "f6d39b2c-8a54-4e27-92d1-7c5b3e4f8a29",
+    "owner_id": "1a8c9d4b-6f23-4e91-84d3-9c5b7e8f2d47",
+    "description": "HPC research datasets from Argonne National Lab",
+    "link": "anl-hpc.data.globus.org"
+  },
+  {
+    "name": "Oak Ridge National Lab - Fusion Energy Data",
+    "id": "b2d7f3e9-6a8c-4c75-b9d2-3e5f8a29c47b",
+    "owner_id": "d4b6c5a9-8f72-4e93-81d2-7f3b5e9c2a48",
+    "description": "Plasma physics and fusion research data",
+    "link": "ornl-fusion.data.globus.org"
+  },
+  {
+    "name": "CERN Open Data Portal",
+    "id": "e4f7b9d3-6a8c-4b72-b5d2-3f8a2c9e7d49",
+    "owner_id": "7c5b3e4f-8a29-4d72-91d3-6f8a2c9e5b48",
+    "description": "Public datasets from CERN's Large Hadron Collider",
+    "link": "cern-opendata.data.globus.org"
+  },
+  {
+    "name": "Test ",
+    "id": "5237367a-e1c0-11ef-9cb8-33056a2963dc",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "Navya's GCP ",
+    "link": "test.org"
+  },
+  {
+    "name": "Second ",
+    "id": "5237367a-e1c0-11ef-9cb8-33056a2963dc",
+    "owner_id": "cef51ddc-e15b-42fe-a908-b95501c41bef",
+    "description": "test",
+    "link": "test.org"
+  }
+]

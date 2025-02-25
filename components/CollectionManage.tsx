@@ -10,6 +10,8 @@ import {
   CardHeader,
   Stack,
   CardBody,
+  CardFooter, 
+  Button,
   Text,
   Spinner,
   InputLeftAddon,
@@ -26,9 +28,12 @@ import throttle from "lodash/throttle";
 import { QuestionIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
+// import mockData from "../mockdb.json"; // Importing mock data
+import DiamondCreateModal from "./DiamondCreateModal"; // Import the pop-up component
+
 type Endpoint = Record<string, any>;
 
-export function CollectionSearch({
+export function CollectionManage({
   onSelect = () => {},
 }: {
   onSelect: (endpoint: Endpoint) => void;
@@ -40,6 +45,11 @@ export function CollectionSearch({
   const [keyword, setKeyword] = useState<string | null>(null);
   const [scope, setScope] = useState<string>("hide-no-permissions");
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedResult, setSelectedResult] = useState<any>(null);
+
+  // console.log("CLIENT", getAccessList());
+  const owner_id = auth.authorization?.user?.sub;
 
   useEffect(() => {
     // Fetch data using Axios instead of fetch
@@ -47,7 +57,7 @@ export function CollectionSearch({
       .get("http://localhost:3001/data")
       .then((response) => {
         setMockResults(response.data);  // Set mock data from backend
-        setFilteredMockResults(response.data); // Initialize filtered data as well
+        // setFilteredMockResults(response.data); // Initialize filtered data as well
       })
       .catch((error) => console.error("Error fetching mock data:", error));
   }, []);
@@ -63,6 +73,7 @@ export function CollectionSearch({
              */
             filter_non_functional: false,
             filter_fulltext: query,
+            filter_owner_id: owner_id, 
             filter_scope: scope,
             limit: 20,
           },
@@ -97,15 +108,19 @@ export function CollectionSearch({
   
     if (isUrl) {
       // Exact match search for the `link` attribute
-      const exactMatch = mockResults.find((entry) => entry.link === lowerKeyword);
+      const exactMatch = mockResults.find(
+        (entry) => entry.link === lowerKeyword && entry.owner_id === owner_id
+      );      
       setFilteredMockResults(exactMatch ? [exactMatch] : []);
     } else {
-      // Normal filtering for partial matches
-      const filtered = mockResults.filter((entry) =>
-        Object.values(entry).some(
-          (value) =>
-            typeof value === "string" && value.toLowerCase().includes(lowerKeyword)
-        )
+      // Normal filtering for partial matches and owner_id check
+      const filtered = mockResults.filter(
+        (entry) =>
+          entry.owner_id === owner_id && // Ensure it belongs to the logged-in user
+          Object.values(entry).some(
+            (value) =>
+              typeof value === "string" && value.toLowerCase().includes(lowerKeyword)
+          )
       );
       setFilteredMockResults(filtered);
     }
@@ -122,6 +137,27 @@ export function CollectionSearch({
   function handleSelect(endpoint: Endpoint) {
     onSelect(endpoint);
   }
+
+  const handleCreate = (result:Endpoint) => {
+    // console.log("Creating:", result);
+    setModalOpen(true);
+    // Add logic to handle creation
+  };
+  
+  const handleModalSubmit = (newEntry: { 
+    name: string; 
+    id: string; 
+    owner_id: string; 
+    description: string; 
+    link: string; 
+  }) => {
+    console.log("New entry created:", newEntry);
+  };
+
+  const handleDelete = (id:any) => {
+    console.log("Deleting ID:", id);
+    // Add logic to handle deletion
+  };
 
   return (
     <Stack>
@@ -180,13 +216,18 @@ export function CollectionSearch({
                 <ListItem>Owner: {result.owner_id}</ListItem>
                 {result.description && (
                   <ListItem>
-                    <Text noOfLines={1}>Description: {result.description}</Text>
+                    <Text as="span" noOfLines={1}>Description: {result.description}</Text>
                   </ListItem>
                 )}
                 {result.link && <ListItem>{result.link}</ListItem>}
               </Text>
             </List>
           </CardBody>
+          <CardFooter display="flex" justifyContent="start">
+            <Button colorScheme="red" size="sm" onClick={() => handleDelete(result.id)}>
+              Delete from Diamond
+            </Button>
+        </CardFooter>
         </Card>
       ))}
 
@@ -209,7 +250,7 @@ export function CollectionSearch({
                 <ListItem>Owner: {result.owner_id}</ListItem>
                 {result.description && (
                   <ListItem>
-                    <Text noOfLines={1}>Description: {result.description}</Text>
+                    <Text as="span" noOfLines={1}>Description: {result.description}</Text>
                   </ListItem>
                 )}
                 {result.tlsftp_server && (
@@ -220,8 +261,37 @@ export function CollectionSearch({
               </Text>
             </List>
           </CardBody>
+          <CardFooter display="flex" justifyContent="start">
+            {/* <Button 
+            colorScheme="green" 
+            size="sm" 
+            onClick={() => {
+              setSelectedResult(result); // Store selected card data
+              setModalOpen(true); // Open modal
+            }}>
+              Add to Diamond
+            </Button> */}
+            <Button 
+            colorScheme="green" 
+            size="sm" 
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent the card click
+              setSelectedResult(result);
+              setModalOpen(true);
+            }}>
+            Add to Diamond
+          </Button>
+        </CardFooter>
         </Card>
       ))}
+
+      {/* Create Modal */}
+      <DiamondCreateModal 
+        isOpen={isModalOpen} 
+        onClose={() => setModalOpen(false)} 
+        onSubmit={handleModalSubmit} 
+        owner_id={selectedResult?.owner_id || ""} 
+        collection_id={selectedResult?.id || ""}/>
     </Stack>
   );
 }
